@@ -508,6 +508,17 @@
 #endif
 
 /* ------------------------------------------------------------------
+** AArch64
+** ------------------------------------------------------------------
+*/
+#if defined __aarch64__ || defined FORCE_DOXYGEN
+#  define POSH_CPU_AARCH64 /**<if defined, target CPU is AArch64 */
+#  if !defined FORCE_DOXYGEN
+#     define POSH_CPU_STRING "ARM64"
+#  endif
+#endif
+
+/* ------------------------------------------------------------------
 ** MIPS (various, including SGI and Sony PS2)
 ** ------------------------------------------------------------------
 */
@@ -830,7 +841,8 @@
 #  define POSH_LITTLE_ENDIAN
 #  define POSH_BIG_ENDIAN
 #elif defined POSH_CPU_X86 || defined POSH_CPU_AXP || defined POSH_CPU_STRONGARM || defined POSH_OS_WIN32 \
-    || defined POSH_OS_WINCE || defined __MIPSEL__ || (defined POSH_CPU_PPC && defined __LITTLE_ENDIAN__)
+    || defined POSH_OS_WINCE || defined __MIPSEL__ || (defined POSH_CPU_PPC && defined __LITTLE_ENDIAN__) \
+    || defined POSH_CPU_AARCH64
 #  define POSH_LITTLE_ENDIAN 1
 #  define POSH_ENDIAN_STRING "little"
 #else
